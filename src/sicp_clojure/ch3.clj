@@ -1,0 +1,10 @@
+;;; Exercise 3.1
+;;; Exercise 3.2
+;;; Exercise 3.3/4
+;;; Exercise 3.5
+;;; Exercise 3.7
+;;; Exercise 3.24
+;;; Exercise 3.47
+;;; Exercise 3.50
+;;; Exercise 3.54
+;;; Exercise 3.55
