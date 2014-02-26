@@ -2,7 +2,23 @@
   )
 
 ;;; Exercise 1.2 - fully within test
+
 ;;; Exercise 1.3
+(defn sum-two-of-three [i1 i2 i3]
+  (let [sqrboth (fn [a b] (+ (* a a) (* b b)))]
+    (if (< i1 i2)
+      (if (< i1 i3)
+        (sqrboth i2 i3)
+        (sqrboth i1 i2))
+      (if (< i2 i3)
+        (sqrboth i1 i3)
+        (sqrboth i1 i2)))))
+
+(defn sum-two-of-three-v2 [& args]
+  (apply
+    (fn [a b] (+ (* a a) (* b b)))
+    (take 2 (sort #(< %2 %1) args))))
+
 ;;; Exercise 1.7
 ;;; Exercise 1.8
 ;;; Exercise 1.11
