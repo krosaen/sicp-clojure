@@ -24,4 +24,17 @@
           (sum-two-of-three 1 3 2)
           (sum-two-of-three-v2 1 3 2)))
     )
+  (testing "Exercise 1.7 example of where it works"
+    (is (=
+          2.0000000929222947
+          (sqrt 4)))
+    )
+  (testing "Exercise 1.7 example of small numbers not working"
+    (is (=
+          2.0000000929222947
+          (sqrt 4)))
+    (is (=
+          0.031260655525445276
+          (sqrt 0.000001)))
+    )
   )

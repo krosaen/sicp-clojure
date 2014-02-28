@@ -18,6 +18,35 @@
     (fn [a b] (+ (* a a) (* b b)))
     (take 2 (sort #(< %2 %1) args))))
 
+;;; Exercise 1.6
+(defn new-if [pred then-clause else-clause]
+  (cond pred then-clause
+    :else else-clause)
+  )
+
+;;; Exercise 1.7
+(declare sqrt-iter)
+(declare good-enough?)
+(declare improve)
+(declare average)
+
+(defn sqrt [x] (sqrt-iter 1.0 x))
+
+(defn sqrt-iter [guess x]
+  (if (good-enough? guess x)
+    guess
+    (recur (improve guess x) x)))
+
+(defn good-enough? [guess x]
+  (< (Math/abs (- (* guess guess) x)) 0.001))
+
+(defn improve [guess x]
+  (average guess (/ x guess)))
+
+(defn average [x y]
+  (/ (+ x y) 2))
+
+
 ;;; Exercise 1.7
 ;;; Exercise 1.8
 ;;; Exercise 1.11
