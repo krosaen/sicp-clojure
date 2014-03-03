@@ -3,6 +3,7 @@
 ;;; Exercise 1.2 - fully within test
 
 ;;; Exercise 1.3
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-10.html#%_thm_1.3
 (defn sum-two-of-three [i1 i2 i3]
   (let [sqrboth (fn [a b] (+ (* a a) (* b b)))]
     (if (< i1 i2)
@@ -19,12 +20,14 @@
     (take 2 (sort #(< %2 %1) args))))
 
 ;;; Exercise 1.6
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-10.html#%_thm_1.6
 (defn new-if [pred then-clause else-clause]
   (cond pred then-clause
     :else else-clause)
   )
 
 ;;; Exercise 1.7
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-10.html#%_thm_1.7
 (declare sqrt-iter)
 (declare good-enough?)
 (declare improve)
@@ -45,6 +48,19 @@
 
 (defn average [x y]
   (/ (+ x y) 2))
+
+(defn good-enough-v2? [guess prev-guess]
+  (<
+    (Math/abs
+       (- guess prev-guess))
+    (* 0.001 guess)))
+
+(defn sqrt-iter-v2 [guess prev-guess x]
+  (if (good-enough? guess prev-guess)
+    guess
+    (recur (improve guess x) guess x)))
+
+(defn sqrt-v2 [x] (sqrt-iter-v2 1.0 0.0 x))
 
 
 ;;; Exercise 1.7

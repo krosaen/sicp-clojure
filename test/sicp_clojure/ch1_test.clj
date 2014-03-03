@@ -31,10 +31,12 @@
     )
   (testing "Exercise 1.7 example of small numbers not working"
     (is (=
-          2.0000000929222947
-          (sqrt 4)))
-    (is (=
           0.031260655525445276
           (sqrt 0.000001)))
+    )
+  (testing "Exercise 1.7 improved good-enough so small numbers works"
+    (is (=
+          0.0010000001533016628
+          (sqrt-v2 0.000001)))
     )
   )
