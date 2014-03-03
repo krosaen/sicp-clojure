@@ -62,9 +62,31 @@
 
 (defn sqrt-v2 [x] (sqrt-iter-v2 1.0 0.0 x))
 
-
-;;; Exercise 1.7
 ;;; Exercise 1.8
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-10.html#%_thm_1.8
+(declare cubert-iter)
+(declare good-enough-cubert?)
+(declare improve-cubert)
+(declare average)
+
+(defn cubert [x] (cubert-iter 1.0 x))
+
+(defn cubert-iter [guess x]
+  (if (good-enough-cubert? guess x)
+    guess
+    (recur (improve-cubert guess x) x)))
+
+(defn good-enough-cubert? [guess x]
+  (< (Math/abs (- (* guess guess guess) x)) 0.001))
+
+(defn improve-cubert [guess x]
+  (/
+    (+
+      (/ x (* guess guess))
+      (* 2 guess)
+      )
+    3))
+
 ;;; Exercise 1.11
 ;;; Exercise 1.12
 ;;; Exercise 1.16
