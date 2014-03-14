@@ -44,4 +44,9 @@
           3.0000005410641766
           (cubert 27)))
     )
+  (testing "sqrt with internals within fn"
+    (is (=
+          2.0000000929222947
+          (sqrt-internals 4)))
+    )
   )

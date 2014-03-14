@@ -87,6 +87,24 @@
       )
     3))
 
+;;; local bindings to hide helper methods, share local x
+(defn sqrt-internals [x]
+  (let [average (fn [a b]
+                  (/ (+ a b) 2))
+        abs (fn [a]
+              (if (< a 0) (* -1 a) a))
+        good-enough? (fn [guess]
+                       (<
+                         (abs (- (* guess guess) x))
+                         0.001))
+        improve (fn [guess] (average guess (/ x guess)))
+        sqrt-iter (fn [guess]
+                    (if (good-enough? guess)
+                      guess
+                      (recur (improve guess))
+                      ))]
+    (sqrt-iter 1.0)))
+
 ;;; Exercise 1.11
 ;;; Exercise 1.12
 ;;; Exercise 1.16
