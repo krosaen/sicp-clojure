@@ -105,7 +105,36 @@
                       ))]
     (sqrt-iter 1.0)))
 
+
 ;;; Exercise 1.11
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_thm_1.11
+(defn fib3 [n]
+  (if
+    (< n 3) n
+    (+
+      (fib3 (- n 1))
+      (* 2 (fib3 (- n 2)))
+      (* 3 (fib3 (- n 3)))
+      )
+    ))
+
+
+(defn fib3-iter [n]
+  (let [
+    impl (fn [i j k cnt]
+           (if (= cnt 0)
+             k
+             (recur
+               j
+               k
+               (+ k (* 2 j) (* 3 i) )
+               (- cnt 1)
+               )))
+         ]
+    (impl 0 1 2 (- n 2))
+    )
+  )
+
 ;;; Exercise 1.12
 ;;; Exercise 1.16
 ;;; Exercise 1.17

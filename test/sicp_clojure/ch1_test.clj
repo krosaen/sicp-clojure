@@ -49,4 +49,22 @@
           2.0000000929222947
           (sqrt-internals 4)))
     )
+  (testing "exersie 1.11"
+    (is (=
+          796
+          (fib3 9)))
+    (is (=
+          25
+          (fib3 5)))
+    (is (=
+          59
+          (fib3 6)))
+    )
+  (testing "exersie 1.11 iter"
+    (is (=
+          25
+          (fib3-iter 5)))
+    (is (=
+          796
+          (fib3-iter 9))))
   )
