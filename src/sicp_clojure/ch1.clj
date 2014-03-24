@@ -136,6 +136,24 @@
   )
 
 ;;; Exercise 1.12
+;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_thm_1.12
+(defn pascal [n]
+  (let [
+    pair-add (fn [s]
+               (map
+                 (fn [args] (apply + args))
+                 (partition 2 1 s)
+                 )
+               )
+         ]
+    (if (<= n 1)
+      [1]
+      (concat
+        [1]
+        (pair-add (pascal (- n 1)))
+        [1])
+      )))
+
 ;;; Exercise 1.16
 ;;; Exercise 1.17
 ;;; Exercise 1.18

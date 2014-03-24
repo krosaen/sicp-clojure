@@ -67,4 +67,21 @@
     (is (=
           796
           (fib3-iter 9))))
+  (testing "exercise 1.12 pascal"
+    (is (=
+          [1]
+          (pascal 1)))
+    (is (=
+          [1 1]
+          (pascal 2)))
+    (is (=
+          [1 2 1]
+          (pascal 3)))
+    (is (=
+          [1 3 3 1]
+          (pascal 4)))
+    (is (=
+          [1 4 6 4 1]
+          (pascal 5))))
+
   )
