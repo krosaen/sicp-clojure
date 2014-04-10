@@ -84,4 +84,12 @@
           [1 4 6 4 1]
           (pascal 5))))
 
+  (testing "exercise 1.16"
+    (is (=
+          (fast-expt-iter 2 4)
+          16))
+    (is (=
+          (fast-expt-iter 4 17)
+          17179869184))
+    )
   )

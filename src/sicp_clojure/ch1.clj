@@ -155,6 +155,23 @@
       )))
 
 ;;; Exercise 1.16
+; not fully iterative
+(defn fast-expt [b n]
+  (cond
+    (= n 0) 1
+    (even? n) (recur (* b b) (/ n 2))
+    :else (* b (fast-expt b (- n 1)))
+    )
+  )
+; fully iterative
+(defn fast-expt-iter [b n]
+  (let [inner (fn [a b n]
+                (cond
+                  (= n 0) a
+                  (even? n) (recur a (* b b) (/ n 2))
+                  :else (recur (* a b) b (- n 1))))
+        ]
+    (inner 1 b n)))
 ;;; Exercise 1.17
 ;;; Exercise 1.18
 ;;; Exercise 1.19
